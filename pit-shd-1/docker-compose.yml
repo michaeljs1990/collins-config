@@ -1,0 +1,11 @@
+collins:
+  image: tumblr/collins
+  volumes:
+    - ./production.conf:/opt/collins/conf/production.conf
+    - ./authentication.conf:/opt/collins/conf/authentication.conf
+    - ./profiles.yaml:/opt/collins/conf/profiles.yaml
+    - ./permissions.yaml:/opt/collins/conf/permissions.yaml
+    - ./users.conf:/opt/collins/conf/users.conf
+  ports:
+    - 9000:9000
+
