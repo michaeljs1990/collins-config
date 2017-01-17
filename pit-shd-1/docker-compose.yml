@@ -1,11 +1,25 @@
 collins:
-  image: tumblr/collins
+  # Build this locally with the docker file
+  # located in this repository
+  image: michaeljs1990/collins
   volumes:
     - ./production.conf:/opt/collins/conf/production.conf
     - ./authentication.conf:/opt/collins/conf/authentication.conf
     - ./profiles.yaml:/opt/collins/conf/profiles.yaml
     - ./permissions.yaml:/opt/collins/conf/permissions.yaml
     - ./users.conf:/opt/collins/conf/users.conf
+    - ./database.conf:/opt/collins/conf/database.conf
+  # Run on first start to setup the mysql db, this is hacky i'll come up with something nice later
+  # entrypoint: java -Dconfig.file=/opt/collins/conf/production.conf -Dhttp.port=9000 -Dlogger.file=/opt/collins/conf/logger.xml -cp /opt/collins/lib/* collins.DbUtil /opt/collins/conf/evolutions/
   ports:
     - 9000:9000
+  links:
+    - mysql
+mysql:
+  image: mysql:5.7
+  environment:
+    - MYSQL_ROOT_PASSWORD=password
+    - MYSQL_DATABASE=collins
+    - MYSQL_USER=collins
+    - MYSQL_PASSWORD=collinspw
 
