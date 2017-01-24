@@ -1,0 +1,7 @@
+profiles:
+  devnode:
+    label: "Dev Machine"
+    prefix: "dev"
+    allow_suffix: true
+    primary_role: "DEVELOPMENT"
+    pool: "DEVELOPMENT"
