@@ -1,4 +1,3 @@
-#!/bin/bash
 # Usage:
 #  provision_asset <tag> <profile-id> <notify> <suffix>
 
@@ -10,8 +9,8 @@ SUFFIX="$4"
 URL="http://collins.m:8080/provision/start"
 
 curl -X POST \
- -d tag=$ASSET \
- -d profile_id=$PROFILE \ 
- -d actor=$NOTIFY \
- -d suffix=$SUFFIX \
+ --data-urlencode "tag=$ASSET" \
+ --data-urlencode "profile_id=$PROFILE" \
+ --data-urlencode "actor=$NOTIFY" \
+ --data-urlencode "suffix=$SUFFIX" \
  $URL
