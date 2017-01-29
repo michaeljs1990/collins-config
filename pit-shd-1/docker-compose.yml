@@ -16,6 +16,8 @@ collins:
     - mysql
 mysql:
   image: mysql:5.7
+  volumes:
+    - /var/opt/mysql:/var/lib/mysql
   environment:
     - MYSQL_ROOT_PASSWORD=password
     - MYSQL_DATABASE=collins

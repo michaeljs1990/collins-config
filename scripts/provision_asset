@@ -1,0 +1,17 @@
+#!/bin/bash
+# Usage:
+#  provision_asset <tag> <profile-id> <notify> <suffix>
+
+ASSET="$1"
+PROFILE="$2"
+NOTIFY="$3"
+SUFFIX="$4"
+
+URL="http://collins.m:8080/provision/start"
+
+curl -X POST \
+ -d tag=$ASSET \
+ -d profile_id=$PROFILE \ 
+ -d actor=$NOTIFY \
+ -d suffix=$SUFFIX \
+ $URL
