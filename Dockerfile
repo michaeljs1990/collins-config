@@ -5,5 +5,5 @@ FROM tumblr/collins
 RUN apt-get update && \
     apt-get -y install ipmitool
 
-COPY conf/profiles.yaml /opt/collins/conf/profiles.yaml
+COPY conf/profiles.yaml /opt/collins/conf/conf/profiles.yaml
 COPY scripts /collins
