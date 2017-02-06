@@ -8,9 +8,11 @@ SUFFIX="$4"
 
 URL="http://collins.m:8080/provision/start"
 
-curl -X POST \
+output=$(curl -X POST -w "%{http_code}" \
  --data-urlencode "tag=$ASSET" \
  --data-urlencode "profile_id=$PROFILE" \
  --data-urlencode "actor=$NOTIFY" \
  --data-urlencode "suffix=$SUFFIX" \
- $URL
+ $URL)
+
+echo $output | grep 200
