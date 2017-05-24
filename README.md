@@ -9,6 +9,12 @@ changing the username and password make sure all assets in MySQL are searchable.
 curl --basic -u blake:admin:first http://localhost:#{collins_port}/api/admin/solr
 ```
 
+For generating a user password for use in the users.conf file run the following.
+
+```
+htpasswd -n -b -s michael test
+```
+
 ## pit-shd-1
 Configuration for the servers setup inside my house.
 
