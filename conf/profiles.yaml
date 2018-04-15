@@ -1,5 +1,11 @@
 ---
 profiles:
+  plexnode:
+    label: "Plex Media Server"
+    prefix: "plex"
+    allow_suffix: true
+    primary_role: "PLEX"
+    pool: "PRODUCTION"
   devnode:
     label: "Dev Machine"
     prefix: "dev"
